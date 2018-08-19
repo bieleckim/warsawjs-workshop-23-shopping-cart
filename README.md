@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bieleckim/warsawjs-workshop-23-shopping-cart.svg?branch=master)](https://travis-ci.org/bieleckim/warsawjs-workshop-23-shopping-cart)
+
 # warsawjs-workshop-23-shopping-cart
 App created for training purposes on the WarsawJS Workshop #23 - End-to-end testing
 
