@@ -58,6 +58,14 @@ describe('Order', () => {
         const productTitle = 'Minecraft';
         cy.addAProductToCart(productTitle);
         cy.contains('Cart').click();
-        // cy.increaseProductQuantityInCart(productTitle);
+        cy.getTotalPriceForProductInCart(productTitle).then((price) => {
+            const priceBeforeIncrease = parseFloat(price.text());
+            cy.increaseProductQuantityInCart(productTitle);
+
+            cy.getTotalPriceForProductInCart(productTitle).then((price) => {
+                const priceAfterIncrease = parseFloat(price.text());
+                expect(priceAfterIncrease).to.eq(priceBeforeIncrease * 2);
+            });
+        });
     });
 });

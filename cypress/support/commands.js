@@ -50,13 +50,8 @@ Cypress.Commands.add('increaseProductQuantityInCart', (productTitle) => {
 });
 
 Cypress.Commands.add('getTotalPriceForProductInCart', (productTitle) => {
-    return new Cypress.Promise((resolve, reject) => {
-        cy
-            .contains(productTitle)
-            .parents('.ant-list-item')
-            .find('.ant-list-item-action li div')
-            .then((elementWithTotalPrice) => {
-                resolve(elementWithTotalPrice.text());
-            });
-    });
+    return cy
+        .contains(productTitle)
+        .parents('.ant-list-item')
+        .find('.ant-list-item-action li div');
 });
