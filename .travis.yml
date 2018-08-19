@@ -43,9 +43,15 @@ script:
   ## variable by default and apply
   ## this to the run.
   - npm run e2e
+  - npm run build
 
   ## alternatively we could specify
   ## a specific record key to use
   ## like this without having to
   ## configure environment variables
   ## - cypress run --record --key <your_record_key>
+
+deploy:
+  provider: surge
+  project: ./build/
+  domain: dreary-holiday.surge.sh

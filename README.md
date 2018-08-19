@@ -3,7 +3,7 @@
 # warsawjs-workshop-23-shopping-cart
 App created for training purposes on the WarsawJS Workshop #23 - End-to-end testing
 
-Demo: http://warsawjs-workshop-23-shopping-cart.surge.sh
+Live: http://dreary-holiday.surge.sh
 
 ![](http://warsawjs.com/assets/images/logo/logo-transparent-240x240.png)
 
