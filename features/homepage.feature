@@ -5,4 +5,4 @@ Feature: Home Page test
     Scenario: Load the page
         Given a page exists
         When I load the page
-        Then "Shop home" should be displayed
+        Then "Shop" should be displayed
