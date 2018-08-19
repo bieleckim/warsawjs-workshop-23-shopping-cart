@@ -20,7 +20,7 @@ const Header = ({ match: { path }, cartSummary }) => (
       style={{ lineHeight: "64px" }}
     >
       <Menu.Item key="/">
-        <Link to="/">Shop home</Link>
+        <Link to="/">Shop</Link>
       </Menu.Item>
       <Menu.Item key="/cart" style={{float: 'right'}}>
         <Link to="/cart"><Icon type="shopping-cart" /> {displayCartSummary(cartSummary)}</Link>
