@@ -53,5 +53,5 @@ script:
 
 deploy:
   provider: surge
-  project: ./build/
+  project: /home/travis/build
   domain: gentle-rat.surge.sh
