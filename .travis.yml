@@ -54,4 +54,4 @@ script:
 deploy:
   provider: surge
   project: ./build/
-  domain: dreary-holiday.surge.sh
+  domain: gentle-rat.surge.sh
