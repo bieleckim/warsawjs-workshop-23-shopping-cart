@@ -53,4 +53,11 @@ describe('Order', () => {
             cy.contains(product);
         });
     });
+
+    it('can increase quantity in the cart', () => {
+        const productTitle = 'Minecraft';
+        cy.addAProductToCart(productTitle);
+        cy.contains('Cart').click();
+        // cy.increaseProductQuantityInCart(productTitle);
+    });
 });

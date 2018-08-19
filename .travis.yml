@@ -53,5 +53,6 @@ script:
 
 deploy:
   provider: surge
-  project: /home/travis/build
+  project: ./build/
   domain: gentle-rat.surge.sh
+  skip_cleanup: true
