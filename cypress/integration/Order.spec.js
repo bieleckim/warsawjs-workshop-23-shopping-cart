@@ -91,6 +91,22 @@ describe('Order', () => {
     });
 
     it('should includes delivery fee for total price on the order summary page', () => {
+        const productTitle = 'Minecraft';
+        const deliveryMethod = 'Courier Express';
+        const couriesExpressPrice = 10;
 
-    })
+        cy.addAProductToCart(productTitle);
+        cy.getProductPriceFromProductList(productTitle).then((price) => {
+            const productPriceWithDeliveryFee = price + couriesExpressPrice;
+            cy.contains('Cart').click();
+            cy.contains('Next').click();
+            cy.fillDeliveryAddressForm('John', 'Street 1', 'City', 'Poland');
+            cy.contains('Next').click();
+            cy.selectPreferredDeliveryMethod(deliveryMethod);
+            cy.contains('Next').click();
+            cy.getOrderTotalPrice().then((totalPrice) => {
+                expect(totalPrice).to.eq(productPriceWithDeliveryFee);
+            });
+        });
+    });
 });

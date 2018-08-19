@@ -62,3 +62,26 @@ Cypress.Commands.add('getValidationErrorForTextField', (textFieldSelector) => {
         .parents('.ant-form-item-control')
         .find('.ant-form-explain');
 });
+
+Cypress.Commands.add('getProductPriceFromProductList', (productTitle) => {
+    return cy
+        .contains(productTitle)
+        .parents('.ant-card-meta-detail')
+        .find('.ant-card-meta-description').then((description) => {
+            const descriptionText = description.text();
+            return new  Cypress.Promise((resolve, reject) => {
+                resolve(parseFloat(descriptionText.split(' ')[1].split('zł')[0]));
+            });
+        });
+});
+
+Cypress.Commands.add('getOrderTotalPrice', () => {
+    return cy
+        .contains('Your order total')
+        .then((orderTotal) => {
+            const orderTotalText = orderTotal.text();
+            return new  Cypress.Promise((resolve, reject) => {
+                resolve(parseFloat(orderTotalText.split(' ')[3].split('zł')[0]));
+            });
+        });
+});
