@@ -55,3 +55,10 @@ Cypress.Commands.add('getTotalPriceForProductInCart', (productTitle) => {
         .parents('.ant-list-item')
         .find('.ant-list-item-action li div');
 });
+
+Cypress.Commands.add('getValidationErrorForTextField', (textFieldSelector) => {
+    return cy
+        .get(textFieldSelector)
+        .parents('.ant-form-item-control')
+        .find('.ant-form-explain');
+});

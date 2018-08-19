@@ -68,4 +68,29 @@ describe('Order', () => {
             });
         });
     });
+
+    it('should show validation error for empty fields in delivery address form', () => {
+        cy.addAProductToCart('Minecraft');
+        cy.contains('Cart').click();
+        // move to delivery address form
+        cy.contains('Next').click();
+        // try submit form
+        cy.contains('Next').click();
+
+        cy.getValidationErrorForTextField('#fullname').then((validationError) => {
+            expect(validationError.text()).to.eq('Please enter your full name');
+        });
+
+        cy.getValidationErrorForTextField('#street').then((validationError) => {
+            expect(validationError.text()).to.eq('Please enter street name');
+        });
+
+        cy.getValidationErrorForTextField('#city').then((validationError) => {
+            expect(validationError.text()).to.eq('Please enter city name');
+        });
+    });
+
+    it('should includes delivery fee for total price on the order summary page', () => {
+
+    })
 });
